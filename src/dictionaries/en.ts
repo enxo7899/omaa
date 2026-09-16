@@ -59,7 +59,7 @@ export const en: Dictionary = {
     veri: "North",
   },
   roles: {
-    owner: "Owner",
+    owner: "Administrator",
     agent: "Agent",
     client: "Client",
   },
@@ -95,8 +95,10 @@ export const en: Dictionary = {
   login: {
     title: "Who are you?",
     subtitle: "Pick the account you want to open the demo with.",
-    ownerTitle: "Owner",
+    ownerTitle: "Administrator",
     ownerBody: "The whole company: agents, clients, revenue and discount rules.",
+    adminLink: "Log in as administrator",
+    adminHint: "For the OMAA team only.",
     agentTitle: "Agent",
     agentBody: "Your region's clients, orders to confirm and logging sales.",
     clientTitle: "Client",

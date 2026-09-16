@@ -57,7 +57,7 @@ export const sq = {
     veri: "Veri",
   },
   roles: {
-    owner: "Pronari",
+    owner: "Administratori",
     agent: "Agjenti",
     client: "Klienti",
   },
@@ -93,8 +93,10 @@ export const sq = {
   login: {
     title: "Kush jeni ju?",
     subtitle: "Zgjidh llogarinë me të cilën do të hysh në demo.",
-    ownerTitle: "Pronari",
+    ownerTitle: "Administratori",
     ownerBody: "Gjithë kompania: agjentët, klientët, të ardhurat dhe rregullat e zbritjeve.",
+    adminLink: "Hyr si administrator",
+    adminHint: "Vetëm për ekipin e OMAA-s.",
     agentTitle: "Agjenti",
     agentBody: "Klientët e rajonit tënd, porositë për konfirmim dhe shënimi i shitjeve.",
     clientTitle: "Klienti",

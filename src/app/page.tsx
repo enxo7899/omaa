@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { BuildingIcon, ChevronRightIcon, StoreIcon, UserRoundIcon } from "lucide-react";
+import { ChevronRightIcon, ShieldIcon, StoreIcon, UserRoundIcon } from "lucide-react";
 import { PublicFrame } from "@/components/shell/public-frame";
 import { useI18n } from "@/lib/i18n";
 import { useStore } from "@/lib/store";
 
 export default function RoleSwitcherPage() {
   const { t } = useI18n();
-  const { login, data } = useStore();
+  const { login } = useStore();
   const router = useRouter();
 
   const enterOwner = () => {
@@ -27,12 +27,7 @@ export default function RoleSwitcherPage() {
         <p className="mt-2 text-base text-ink-2">{t.login.subtitle}</p>
       </div>
 
-      <div className="mt-8 grid gap-3 lg:mt-12 lg:grid-cols-3 lg:gap-4">
-        <button type="button" onClick={enterOwner} className={cardClass}>
-          <RoleIcon icon={BuildingIcon} />
-          <RoleText title={t.login.ownerTitle} body={t.login.ownerBody} meta={data?.owner.company ?? "OMAA shpk"} />
-          <Chevron />
-        </button>
+      <div className="mt-8 grid gap-3 lg:mt-12 lg:grid-cols-2 lg:gap-4">
         <Link href="/login/agent" className={cardClass}>
           <RoleIcon icon={UserRoundIcon} />
           <RoleText title={t.login.agentTitle} body={t.login.agentBody} meta={t.login.pickAgentSub} />
@@ -45,6 +40,18 @@ export default function RoleSwitcherPage() {
         </Link>
       </div>
 
+      <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <button
+          type="button"
+          onClick={enterOwner}
+          className="inline-flex h-10 items-center gap-2 rounded-control border border-line-strong bg-white px-3 text-xs font-semibold text-ink-2 transition-colors hover:border-forest hover:text-forest"
+        >
+          <ShieldIcon className="size-4" aria-hidden="true" />
+          {t.login.adminLink}
+        </button>
+        <span className="text-xs text-ink-3">{t.login.adminHint}</span>
+      </div>
+
       <section className="mt-10 max-w-[64ch] border-t border-line pt-6 lg:mt-16">
         <h2 className="text-sm font-semibold text-ink">{t.common.aboutDemoTitle}</h2>
         <p className="mt-1 text-xs leading-5 text-ink-3">{t.common.aboutDemoBody}</p>
@@ -53,7 +60,7 @@ export default function RoleSwitcherPage() {
   );
 }
 
-function RoleIcon({ icon: Icon }: { icon: typeof BuildingIcon }) {
+function RoleIcon({ icon: Icon }: { icon: typeof StoreIcon }) {
   return (
     <span className="flex size-12 shrink-0 items-center justify-center rounded-control bg-forest-tint text-forest transition-colors group-hover:bg-forest group-hover:text-white">
       <Icon className="size-6" strokeWidth={1.75} aria-hidden="true" />
